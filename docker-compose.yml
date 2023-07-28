@@ -1,0 +1,16 @@
+version: "3"
+services:
+        web_server_lab:
+                build: web_server_lab/
+                ports:
+                - "8080:80"
+                networks:
+                - docker-lab-network
+
+        db:
+                image: mysql/mysql-server:latest
+                networks: 
+                - docker-lab-network
+networks:
+        docker-lab-network:
+                external: true
